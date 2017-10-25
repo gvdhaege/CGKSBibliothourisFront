@@ -16,7 +16,7 @@ pipeline {
 
         stage('CodeCoverage') {
             steps {
-                node {
+                script {
                     try {
                         bat './gradlew.bat jacocoTestCoverageVerification'
                     } catch(error) {
