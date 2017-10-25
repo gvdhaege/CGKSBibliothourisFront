@@ -19,8 +19,9 @@ pipeline {
                 bat './gradlew.bat jacocoTestCoverageVerification'
             } catch (err) {
                 echo "Caught: ${err}"
-                currentBuild.result = 'FAILURE'
+                currentBuild.result = 'UNSTABLE'
             }
+
         }
     }
 
