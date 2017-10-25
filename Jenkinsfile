@@ -15,11 +15,13 @@ pipeline {
         }
 
         stage('CodeCoverage') {
-            node {
-                try {
-                    bat './gradlew.bat jacocoTestCoverageVerification'
-                } catch(error) {
-                    currentBuild.result='UNSTABLE'
+            steps {
+                node {
+                    try {
+                        bat './gradlew.bat jacocoTestCoverageVerification'
+                    } catch(error) {
+                        currentBuild.result='UNSTABLE'
+                    }
                 }
             }
         }
