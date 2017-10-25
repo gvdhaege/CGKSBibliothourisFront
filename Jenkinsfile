@@ -10,7 +10,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat './gradlew.bat test || 0'
+                bat(script: './gradlew.bat test', returnStatus:true)
             }
         }
     }
