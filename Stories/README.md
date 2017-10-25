@@ -44,11 +44,10 @@ Make sure you can save your repositories to a file. Make this file human readabl
 <details><summary>Hint:</summary>
 
 1. Try to search for serialisation and Java.
-2. You may use XML or JSON, for JSON jackson is already configured as a dependency.
-3. Don't make it performant, just make a new file everytime you add/remove/update an element.
-4. Use lazy loading.
-5. If you want to speed things up, search and use multi threading. This is an advanced topic.
-6. Do this in a separate class, and when you're up to it make it generic. 
+2. Don't make it performant, just make a new file everytime you add/remove/update an element.
+3. Use lazy loading.
+4. If you want to speed things up, search and use multi threading. This is an advanced topic.
+5. Do this in a separate class, and when you're up to it make it generic. 
 </details>
 
 ## Story 18:
