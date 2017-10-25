@@ -8,6 +8,7 @@ As a registered user I can search for a book by entering a part of the isbn. I s
 <details><summary>Hint:</summary>
 Use regex for the wildcard part.
 </details>
+
 ## Story 4:
 As a registered user I can search for a book by entering a part of the title. I should be able to enter wildcards if I don't know the complete title.
 ## Story 5:
