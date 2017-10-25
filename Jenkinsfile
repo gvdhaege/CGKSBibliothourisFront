@@ -15,13 +15,11 @@ pipeline {
         }
 
         stage('CodeCoverage') {
-            steps {
-                try {
-                    bat './gradlew.bat jacocoTestCoverageVerification'
-                } catch (err) {
-                    echo "Caught: ${err}"
-                    currentBuild.result = 'FAILURE'
-                }
+            try {
+                bat './gradlew.bat jacocoTestCoverageVerification'
+            } catch (err) {
+                echo "Caught: ${err}"
+                currentBuild.result = 'FAILURE'
             }
         }
     }
