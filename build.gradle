@@ -36,6 +36,19 @@ jar {
     }
 }
 
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            element = 'CLASS'
+            includes = ['be.cegeka.bibliothouris.application.*','be.cegeka.bibliothouris.domain.*']
+            limit {
+                counter = 'BRANCH'
+                minimum = 0.7
+            }
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }

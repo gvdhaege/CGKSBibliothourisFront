@@ -13,6 +13,12 @@ pipeline {
                 bat(script: './gradlew.bat test', returnStatus:true)
             }
         }
+
+        stage('CodeCoverage') {
+            steps {
+                bat(script: './gradlew.bat test', returnStatus:true)
+            }
+        }
     }
 
     post {
