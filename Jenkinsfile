@@ -16,7 +16,7 @@ pipeline {
 
         stage('CodeCoverage') {
             steps {
-                bat(script: './gradlew.bat test', returnStatus:true)
+                bat(script: './gradlew.bat jacocoTestCoverageVerification', returnStatus:true)
             }
         }
     }
