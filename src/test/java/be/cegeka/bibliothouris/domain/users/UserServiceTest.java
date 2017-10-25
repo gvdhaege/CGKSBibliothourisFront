@@ -54,4 +54,9 @@ public class UserServiceTest {
 
         assertThat(userService.getAllUsers()).containsOnly(user1, user2);
     }
+
+    @Test
+    public void failureTest() throws Exception {
+        assertThat(true).isFalse();
+    }
 }
