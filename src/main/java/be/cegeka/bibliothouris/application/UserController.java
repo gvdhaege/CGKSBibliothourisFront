@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.util.List;
 
-@RestController(value = "/user")
+@RestController
+@RequestMapping(path = "/user")
 public class UserController {
 
     @Inject
