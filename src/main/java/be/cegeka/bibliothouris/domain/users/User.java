@@ -3,12 +3,13 @@ package be.cegeka.bibliothouris.domain.users;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "USERS")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
 
     private User(){
