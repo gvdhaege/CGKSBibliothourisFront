@@ -41,6 +41,10 @@ jar {
     }
 }
 
+test{
+    systemProperties = System.properties
+}
+
 jacocoTestCoverageVerification {
     violationRules {
         rule {
