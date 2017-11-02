@@ -32,23 +32,18 @@ public class UserServiceTest {
     @Mock
     private UserRepository userRepository;
 
-    @Before
-    public void setUp() throws Exception {
-        ReflectionTestUtils.setField(userService, "counter", new AtomicLong(4l));
-    }
-
     @Test
     public void addUser_ShouldCallUserRepository() throws Exception {
         userService.addUser("Seppe");
 
-        verify(userRepository).addUser(new User(5l, "Seppe"));
+        verify(userRepository).addUser(new User( "Seppe"));
     }
 
     @Test
     public void getAllUsers() throws Exception {
-        User user1 = new User(1l, "Seppe");
-        User user2 = new User(2l, "Sanne");
-        User user3 = new User(3l, "Xan");
+        User user1 = new User( "Seppe");
+        User user2 = new User( "Sanne");
+        User user3 = new User( "Xan");
 
         when(userRepository.getAllUsers()).thenReturn(Arrays.asList(user1, user2));
 

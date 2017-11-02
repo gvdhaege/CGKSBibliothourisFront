@@ -1,16 +1,24 @@
 package be.cegeka.bibliothouris.domain.users;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
 
-    private final long id;
-    private final String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "name")
+    private String name;
 
-    public User(long id, String name) {
-        this.id = id;
+    private User(){
+    }
+
+    public User(String name) {
         this.name = name;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 

@@ -11,10 +11,8 @@ public class UserService {
     @Inject
     private UserRepository userRepository;
 
-    private final AtomicLong counter = new AtomicLong();
-
     public void addUser(String name){
-        userRepository.addUser(new User(counter.incrementAndGet() , name));
+        userRepository.addUser(new User(name));
     }
 
     public List<User> getAllUsers() {
