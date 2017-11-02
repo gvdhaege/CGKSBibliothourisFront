@@ -7,6 +7,12 @@ pipeline {
                 bat './gradlew.bat clean testClasses'
             }
         }
+        stage('cleanDb') {
+           steps {
+               bat './gradlew.bat flywayClean -p flyway.schema=bib1 -p flyway.url=jdbc:mysql://localhost:3306/bib1'
+               bat './gradlew.bat flywayValidate -p flyway.schema=bib1 -p flyway.url=jdbc:mysql://localhost:3306/bib1'
+           }
+        }
 
         stage('Test') {
             steps {
