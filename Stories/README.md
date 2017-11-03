@@ -39,18 +39,8 @@ As a librarian I can register a new book. The ISBN, title and author's last name
 As a librarian I want the ISBN to be validated.
 ## Story 16:
 As a member I will get a fine when I return a book too late. (details see powerpoint)
+
 ## Story 17:
-Make sure you can save your repositories to a file. Make this file human readable
-<details><summary>Hint:</summary>
-
-1. Try to search for serialisation and Java.
-2. Don't make it performant, just make a new file everytime you add/remove/update an element.
-3. Use lazy loading.
-4. If you want to speed things up, search and use multi threading. This is an advanced topic.
-5. Do this in a separate class, and when you're up to it make it generic. 
-</details>
-
-## Story 18:
 As an admin I want to make sure that non registered users can't access the application.
 You should also update the member information with passwords and user role.
 Update the REST requests
@@ -58,26 +48,26 @@ Update the REST requests
 Read the [Third step: Securing the REST service with Spring Security:](https://jaxenter.com/rest-api-spring-java-8-112289.html)
 </details>
 
-## Story 19
+## Story 18:
 As a librarian I want to have the same book multiple times. This ensures that we can lend the book at the same time to multiple members.
 Also check before lending a book that this book is available.
 Make sure that the correct person gets the fines.
 
-## Story 20
+## Story 19:
 As a librarian I want to mark a book damaged, this will give the previous loaner a fine:
 ``` (initial price) * (1 - ((age of the book in years) * 0.2) ``` with a minimum of 5 euro.
 
-## Story 21
+## Story 20:
 As an accountant I want to send an invoice to the registered members.
 1. Create a new spring boot application with a different port (preferable another git repo)
 2. Make sure you can ask the other application for all of his users, and his fines.
 3. Every user should pay a subscription fee of 5 euro.
 4. Using a fake SMTP server send emails to the users. <http://papercut.codeplex.com/>
 
-## Story 22
+## Story 21:
 As a librarian I wan to have a report on the lending history of a book.
 This should contain the periods it has been loaned and by whom.
 Also try to sugest some data that could be usefull for the librarian within the report.
 
-## Story 23
+## Story 22:
 As an accountant I want to have a generated excel document about the revenue of a complete year. 
