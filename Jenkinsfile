@@ -9,8 +9,8 @@ pipeline {
         }
         stage('cleanDb') {
            steps {
-               bat './gradlew.bat flywayClean -P flyway.schemas=bib1 -P flyway.url=jdbc:mysql://localhost:3306/bib1'
-               bat './gradlew.bat flywayMigrate -P flyway.schemas=bib1 -P flyway.url=jdbc:mysql://localhost:3306/bib1'
+               bat './gradlew.bat flywayClean -P flyway.schemas=bib2 -P flyway.url=jdbc:mysql://localhost:3306/bib2'
+               bat './gradlew.bat flywayMigrate -P flyway.schemas=bib2 -P flyway.url=jdbc:mysql://localhost:3306/bib2'
            }
         }
 
