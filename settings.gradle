@@ -1,1 +1,3 @@
-rootProject.name = 'CGKSBibliothouris'
+rootProject.name = 'CGKSBibliothourisFront'
+
+include 'bibliothouris-rest', 'bibliothouris-ui'

@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'com.moowork.node' version '1.2.0'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+}
+
+war {
+    archiveName = 'bibliothouris-ui.war'
+    from 'dist'
+}
+
+task ngTest(type: NpmTask) {
+    group = 'bibliothouris-ui'
+    description = 'Run angular tests'
+    args = ['run', 'test']
+}
+
+task ngBuild(type: NpmTask) {
+    group = 'bibliothouris-ui'
+    description = 'Build Angular application'
+    args = ['run', 'build']
+}
+
+ngBuild.dependsOn npmInstall
+war.dependsOn ngBuild
