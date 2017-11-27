@@ -1,5 +1,7 @@
 package be.cegeka.bibliothouris.domain.users;
 
+import be.cegeka.bibliothouris.domain.books.BookRepository;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
@@ -18,4 +20,5 @@ public class UserService {
     public List<User> getAllUsers() {
         return userRepository.getAllUsers();
     }
+
 }
