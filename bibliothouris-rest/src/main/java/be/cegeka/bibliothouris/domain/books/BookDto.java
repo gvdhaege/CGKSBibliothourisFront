@@ -6,8 +6,6 @@ public class BookDto {
     private String authorFirstName;
     private String authorLastName;
     private String isbn;
-    private String lastName;
-    private String firstName;
 
     public BookDto(){}
 
@@ -24,11 +22,11 @@ public class BookDto {
     }
 
     public String getLastName() {
-        return lastName;
+        return authorLastName;
     }
 
     public String getFirstName() {
-        return firstName;
+        return authorFirstName;
     }
 
     public String getTitle() {

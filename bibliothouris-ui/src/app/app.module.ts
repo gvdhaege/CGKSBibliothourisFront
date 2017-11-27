@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { Users} from './user/users.component'
+import { Books} from './book/books.component'
 import { AuthGuard } from './app.guard';
 
 import 'hammerjs';
@@ -16,7 +17,8 @@ import { BackendModule } from './backend/backend.module';
 @NgModule({
   declarations: [
     AppComponent,
-    Users
+    Users,
+    Books
   ],
   imports: [
     BrowserModule,
