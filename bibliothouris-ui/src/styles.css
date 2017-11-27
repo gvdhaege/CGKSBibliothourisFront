@@ -1,10 +1,12 @@
 .contextMain {
     margin-top: 60px;
-     height: 50vh;
+     height: auto;
+     min-height: 60vh;
 }
 .contextAside {
     margin-top: 60px;
-     height: 50vh;
+     height: auto;
+     min-height: 60vh;
 }
 .noPadding{
     padding-left: 0px !important;
@@ -13,3 +15,12 @@
 .navContext{
     height: 60px;
 }
+/* CSS for FORMS */
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+/* End of FORMS CSS */

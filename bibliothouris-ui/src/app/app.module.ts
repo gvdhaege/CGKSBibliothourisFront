@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { Users} from './user/users.component'
-import { Books} from './book/books.component'
+import { Users} from './user/users.component';
+import { Books} from './book/books.component';
+import { Librarian} from './librarian/librarian.component';
 import { AuthGuard } from './app.guard';
 
 import 'hammerjs';
@@ -18,7 +19,8 @@ import { BackendModule } from './backend/backend.module';
   declarations: [
     AppComponent,
     Users,
-    Books
+    Books,
+    Librarian
   ],
   imports: [
     BrowserModule,
