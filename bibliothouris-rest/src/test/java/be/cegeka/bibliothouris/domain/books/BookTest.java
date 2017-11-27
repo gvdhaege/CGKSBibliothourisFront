@@ -39,7 +39,12 @@ public class BookTest {
         Assertions.assertThat(testBoek).isNotEqualTo(new Object());
     }
 
-
+    @Test
+    public void book_shouldNotBeEqualToNullObject() throws Exception {
+        Book testBoek = new Book("Title", "First", "Last", "123456789");
+        ReflectionTestUtils.setField(testBoek, "id", 1);
+        Assertions.assertThat(testBoek).isNotEqualTo(null);
+    }
 
 
 }
