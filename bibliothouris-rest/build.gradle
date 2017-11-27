@@ -16,7 +16,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'idea'
-apply plugin: 'jacoco'
+//apply plugin: 'jacoco'
 
 group = 'be.cegeka.bibliothouris'
 version = '1.0.0'
@@ -45,18 +45,18 @@ test{
     systemProperties = System.properties
 }
 
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            element = 'CLASS'
-            includes = ['be.cegeka.bibliothouris.application.*','be.cegeka.bibliothouris.domain.*']
-            limit {
-                counter = 'BRANCH'
-                minimum = 0.7
-            }
-        }
-    }
-}
+//jacocoTestCoverageVerification {
+//    violationRules {
+//        rule {
+//            element = 'CLASS'
+//            includes = ['be.cegeka.bibliothouris.application.*','be.cegeka.bibliothouris.domain.*']
+//            limit {
+//                counter = 'BRANCH'
+//                minimum = 0.7
+//            }
+//        }
+//    }
+//}
 
 repositories {
     mavenCentral()
