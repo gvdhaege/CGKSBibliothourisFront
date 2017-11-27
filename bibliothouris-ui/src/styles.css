@@ -1,0 +1,15 @@
+.contextMain {
+    margin-top: 60px;
+     height: 50vh;
+}
+.contextAside {
+    margin-top: 60px;
+     height: 50vh;
+}
+.noPadding{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.navContext{
+    height: 60px;
+}

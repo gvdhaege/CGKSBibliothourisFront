@@ -1,14 +1,49 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Bibliothouris</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>Bibliothouris by Nemo</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <app-root>Loading...</app-root>
+<!-- header met nav -->
+<header class="container-fluid fixed-top text-right bg-primary navContext">
+    <nav class="navbar">
+        <a class="text-white" href=".">Home</a>
+    </nav>
+
+</header>
+<div class="container-fluid">
+    <div class=" row">
+        <div class="col-9 noPadding">
+            <main class="text-center bg-light contextMain">
+                <app-root>Loading...</app-root>
+                <p>test tekst main</p>
+
+            </main>
+        </div>
+        <div class="col-md-3 noPadding">
+            <aside class="contextAside bg-secondary">
+                <section>search</section>
+                <section>login</section>
+            </aside>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- footer -->
+<footer class="text-center bg-info">
+    <h3>Bibliothouris by Nemo</h3>
+</footer>
+
+
 </body>
 </html>
