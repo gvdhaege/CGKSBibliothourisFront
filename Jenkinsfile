@@ -20,17 +20,17 @@ pipeline {
             }
         }
 
-        //stage('CodeCoverage') {
-          //  steps {
-            //    script {
-              //      try {
-                //        bat './gradlew.bat :bibliothouris-rest:jacocoTestCoverageVerification'
-                  //  } catch(error) {
-                    //    currentBuild.result='UNSTABLE'
-                  //  }
-               // }
-           // }
-       // }
+        stage('CodeCoverage') {
+            steps {
+                script {
+                    try {
+                        bat './gradlew.bat :bibliothouris-rest:jacocoTestCoverageVerification'
+                    } catch(error) {
+                        currentBuild.result='UNSTABLE'
+                    }
+                }
+            }
+        }
     }
 
     post {
