@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        bat './gradlew.bat jacocoTestCoverageVerification'
+                        bat './gradlew.bat :bibliothouris-rest:jacocoTestCoverageVerification'
                     } catch(error) {
                         currentBuild.result='UNSTABLE'
                     }
