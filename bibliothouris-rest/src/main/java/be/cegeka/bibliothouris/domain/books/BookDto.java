@@ -7,7 +7,8 @@ public class BookDto {
     private String authorLastName;
     private String isbn;
 
-    public BookDto(){}
+    public BookDto() {
+    }
 
     public BookDto(String title, String authorFirstName, String authorLastName, String isbn) {
         this.title = title;
@@ -17,19 +18,19 @@ public class BookDto {
     }
 
 
-    public String getIsbn() {
-        return isbn;
+    public String getTitle() {
+        return title;
     }
 
-    public String getLastName() {
-        return authorLastName;
-    }
-
-    public String getFirstName() {
+    public String getAuthorFirstName() {
         return authorFirstName;
     }
 
-    public String getTitle() {
-        return title;
+    public String getAuthorLastName() {
+        return authorLastName;
+    }
+
+    public String getIsbn() {
+        return isbn;
     }
 }

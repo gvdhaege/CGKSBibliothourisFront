@@ -24,6 +24,6 @@ export class BackendService {
             'Authorization' : 'Basic ' + btoa('seppe:password')
         });
 
-        return this.http.get<Array<Book>>(`${environment.baseUrl}/book` , { headers: header });
+        return this.http.get<Array<Book>>(`${environment.baseUrl}/user/allBooks` , { headers: header });
     }
 }

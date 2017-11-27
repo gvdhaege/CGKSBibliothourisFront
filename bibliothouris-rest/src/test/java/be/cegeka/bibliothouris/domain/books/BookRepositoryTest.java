@@ -32,17 +32,25 @@ public class BookRepositoryTest {
     private BookRepository bookRepository;
 
     private Book testBoek;
+    private Book testBoek2;
 
     @Before
     public void setUp(){
     testBoek = new Book("title", "first", "last", "isbn");
-
+    testBoek2 = new Book("nogEenTitel", "Voornaam", "Achternaam", "56556");
     }
 
     @Test
     public void addBook_shouldAddBookToDb() throws Exception {
         bookRepository.addBook(testBoek);
         Assertions.assertThat(entityManager.find(Book.class, testBoek.getId())).isEqualTo(testBoek);
+    }
 
+    @Test
+    public void getAllBooks_shouldReturnAllBooks() throws Exception {
+        bookRepository.addBook(testBoek);
+        bookRepository.addBook(testBoek2);
+
+        Assertions.assertThat(bookRepository.getAllBooks()).contains(testBoek, testBoek2);
     }
 }

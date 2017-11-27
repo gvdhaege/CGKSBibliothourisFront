@@ -2,6 +2,7 @@ package be.cegeka.bibliothouris.domain.books;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class BookService {
@@ -16,4 +17,7 @@ public class BookService {
         bookRepository.addBook(bookMapper.createBookFromDto(bookDto));
     }
 
+    public List<Book> getAllBooks() {
+        return  bookRepository.getAllBooks();
+    }
 }

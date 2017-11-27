@@ -1,5 +1,6 @@
 package be.cegeka.bibliothouris.application;
 
+import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.books.BookDto;
 import be.cegeka.bibliothouris.domain.books.BookService;
 import be.cegeka.bibliothouris.domain.users.User;
@@ -40,4 +41,9 @@ public class UserController {
         bookService.addBook(bookDto);
     }
 
+    @RequestMapping(path = "/allBooks")
+    @GetMapping
+    public List<Book> getAllBooks() {
+       return bookService.getAllBooks();
+    }
 }

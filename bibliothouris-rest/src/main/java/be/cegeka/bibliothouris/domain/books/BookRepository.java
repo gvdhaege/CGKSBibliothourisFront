@@ -3,6 +3,7 @@ package be.cegeka.bibliothouris.domain.books;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Named
 public class BookRepository {
@@ -14,4 +15,7 @@ public class BookRepository {
         entityManager.persist(book);
     }
 
+    public List getAllBooks() {
+        return entityManager.createQuery("select b from Book b").getResultList();
+    }
 }
