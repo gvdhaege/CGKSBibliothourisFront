@@ -21,4 +21,15 @@ export class Books implements OnInit {
             });
     }
 
+    search: string ='';
+    searchType : string = '';
+
+    filterBooksBySearch(search: string){
+
+        return this.books.filter(books => books.title.toUpperCase().includes(search.toUpperCase()));
+        }
+
+
 }
+
+

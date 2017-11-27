@@ -1,5 +1,34 @@
-<ul>
-    <li *ngFor="let book of books">
-         {{book.id}} - {{book.title}} -{{book.authorFirstName}} -{{book.authorLastName}} -{{book.isbn}}
-    </li>
-</ul>
+<section>
+    <div>
+        <ul>
+            <li *ngFor="let book of filterBooksBySearch(search)">
+                {{book.id}} - {{book.title}} -{{book.authorFirstName}} -{{book.authorLastName}} -{{book.isbn}}
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <!--<label for="dropdown">Search by: </label>-->
+    <!--<select id="dropdown" name="searchType" [(ngModel)]="searchType">-->
+        <!--<option value="title">Title</option>-->
+        <!--<option value="isbn">ISBN</option>-->
+        <!--<option value="name">Name</option>-->
+    <!--</select>-->
+    <label for="invulveld">Search by title for: </label>
+    <input id="invulveld" placeholder="Type here" [(ngModel)]="search">
+</section>
+
+<!--dit hoort, als het juist geimplementeerd is hierboven in books.component.ts, but commenting doesn't work thereo-->
+<!--!!, searchType: string hoort nog in de parameters!!-->
+<!--filterBooksBySearch(search: string, searchType: string){-->
+<!--if(searchType === "title"){-->
+<!--return this.books.filter(books => books.title.toUpperCase().includes(search.toUpperCase()));-->
+<!--}-->
+<!--if(searchType === "isbn"){-->
+<!--return this.books.filter(books => books.isbn.toUpperCase().includes(search.toUpperCase()));-->
+<!--}-->
+<!--if(searchType === "name"){-->
+<!--return this.books.filter(books => books.authorLastName.toUpperCase().includes(search.toUpperCase()));-->
+
+<!--}-->

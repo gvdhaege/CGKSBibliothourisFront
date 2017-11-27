@@ -12,4 +12,5 @@ export class Book{
         this.authorLastName = authorLastName;
         this.isbn = isbn;
         }
+
 }
