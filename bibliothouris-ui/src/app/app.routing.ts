@@ -4,7 +4,6 @@ import {Users} from './user/users.component';
 
 const appRoutes: Routes = [
     { path: '', component: Users },
-    { path: '/user/overview', component: Users },
 
 ];
 
