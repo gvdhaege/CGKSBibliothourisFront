@@ -14,6 +14,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.inject.Inject;
 
+import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
 @EnableWebSecurity
@@ -33,6 +34,7 @@ public class WebsecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             .antMatchers("/").permitAll()
             .antMatchers(POST, "/user").permitAll()
+            .antMatchers(GET, "/user/allBooks").permitAll()
             .anyRequest().authenticated()
             .and().httpBasic()
             .and()

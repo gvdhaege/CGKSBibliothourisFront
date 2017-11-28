@@ -6,10 +6,9 @@ public class BookDto {
     private String authorFirstName;
     private String authorLastName;
     private String isbn;
-    private String lastName;
-    private String firstName;
 
-    public BookDto(){}
+    public BookDto() {
+    }
 
     public BookDto(String title, String authorFirstName, String authorLastName, String isbn) {
         this.title = title;
@@ -19,19 +18,19 @@ public class BookDto {
     }
 
 
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
     public String getTitle() {
         return title;
+    }
+
+    public String getAuthorFirstName() {
+        return authorFirstName;
+    }
+
+    public String getAuthorLastName() {
+        return authorLastName;
+    }
+
+    public String getIsbn() {
+        return isbn;
     }
 }
