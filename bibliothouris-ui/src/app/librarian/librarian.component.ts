@@ -11,9 +11,9 @@ import { AddBook } from '../book/AddBook.class';
 export class Librarian {
 
 
-    constructor(private backendService: BackendService) { }
+    constructor(private backendService: BackendService) {}
 
-    book = new AddBook("", "", "", "");
+    book = new AddBook("","","","");
 
     submitted = false;
 
