@@ -1,79 +1,79 @@
 <section>
-<div class="container">
-    <div [hidden] ="submitted">
-    <h1>Submit a book</h1>
+    <div class="container">
+        <div [hidden]="submitted">
+            <h1>Submit a book</h1>
 
-    <form (ngSubmit)="onSubmit()" #librarianAddBook="ngForm">
-      <div class="form-group">
-        <label for="title">Book title:</label>
-        <input type="text" class="form-control" id="title" required
-        [(ngModel)]="book.title" name="title"
-        #title="ngModel">
-        <div [hidden]="title.valid || title.pristine"
-        class="alert alert-danger">
-     Title is required.
-   </div>
-      </div>
- 
-      <div class="form-group">
-        <label for="firstname">Author first name:</label>
-        <input type="text" class="form-control" id="firstname" required
-        [(ngModel)]="book.authorFirstName" name="authorFirstName"
-        #firstname="ngModel">
-        <div [hidden]="firstname.valid || firstname.pristine"
-        class="alert alert-danger">
-     Author first name is required.
-   </div>
-      </div>
+            <form (ngSubmit)="onSubmit()" #addBookForm="ngForm">
+                <div class="form-group">
+                    <label for="title">Book title:</label>
+                    <input type="text" class="form-control" id="title" required
+                           [(ngModel)]="book.title" name="title"
+                           #title="ngModel">
+                    <div [hidden]="title.valid || title.pristine"
+                         class="alert alert-danger">
+                        Title is required.
+                    </div>
+                </div>
 
-      <div class="form-group">
-        <label for="lastname">Author last name:</label>
-        <input type="text" class="form-control" id="lastname" required
-        [(ngModel)]="book.authorLastName" name="authorLastName"
-        #lastname="ngModel">
-        <div [hidden]="lastname.valid || lastname.pristine"
-        class="alert alert-danger">
-     AUthor last name is required.
-   </div>
-      </div>
+                <div class="form-group">
+                    <label for="firstname">Author first name:</label>
+                    <input type="text" class="form-control" id="firstname" required
+                           [(ngModel)]="book.authorFirstName" name="authorFirstName"
+                           #firstname="ngModel">
+                    <div [hidden]="firstname.valid || firstname.pristine"
+                         class="alert alert-danger">
+                        Author first name is required.
+                    </div>
+                </div>
 
-      <div class="isbn">
-        <label for="lastname">ISBN:</label>
-        <input type="text" class="form-control" id="isbn" required
-        [(ngModel)]="book.isbn" name="isbn"
-        #isbn="ngModel">
-        <div [hidden]="isbn.valid || isbn.pristine"
-        class="alert alert-danger">
-     ISBN is required.
-   </div>
-      </div>
-      
-      <button type="submit" class="btn btn-primary">Submit</button>
- 
-    </form>
-    </div>
+                <div class="form-group">
+                    <label for="lastname">Author last name:</label>
+                    <input type="text" class="form-control" id="lastname" required
+                           [(ngModel)]="book.authorLastName" name="authorLastName"
+                           #lastname="ngModel">
+                    <div [hidden]="lastname.valid || lastname.pristine"
+                         class="alert alert-danger">
+                        Author last name is required.
+                    </div>
+                </div>
 
-    <div [hidden]="!submitted">
+                <div class="isbn">
+                    <label for="lastname">ISBN:</label>
+                    <input type="text" class="form-control" id="isbn" required
+                           [(ngModel)]="book.isbn" name="isbn"
+                           #isbn="ngModel">
+                    <div [hidden]="isbn.valid || isbn.pristine"
+                         class="alert alert-danger">
+                        ISBN is required.
+                    </div>
+                </div>
+
+                <button type="submit" [disabled]="!addBookForm.valid" class="btn btn-primary" (click)="addBook()" >Submit</button>
+
+            </form>
+        </div>
+
+        <div [hidden]="!submitted">
             <h2>You submitted a book with the following data:</h2>
             <div class="row">
-              <div class="col-xs-3"><b>Title:</b>&nbsp; </div>
-              <div class="col-xs-9  pull-left">{{ book.title }}</div>
+                <div class="col-xs-3"><b>Title:</b>&nbsp;</div>
+                <div class="col-xs-9  pull-left">{{ book.title }}</div>
             </div>
             <div class="row">
-              <div class="col-xs-3"><b>Author first name:</b>&nbsp; </div>
-              <div class="col-xs-9 pull-left">{{ book.authorFirstName }}</div>
+                <div class="col-xs-3"><b>Author first name:</b>&nbsp;</div>
+                <div class="col-xs-9 pull-left">{{ book.authorFirstName }}</div>
             </div>
             <div class="row">
-              <div class="col-xs-3"><b>Author last name:</b>&nbsp; </div>
-              <div class="col-xs-9 pull-left">{{ book.authorLastName }}</div>
+                <div class="col-xs-3"><b>Author last name:</b>&nbsp;</div>
+                <div class="col-xs-9 pull-left">{{ book.authorLastName }}</div>
             </div>
             <div class="row">
-                <div class="col-xs-3"><b>ISBN:</b>&nbsp; </div>
+                <div class="col-xs-3"><b>ISBN:</b>&nbsp;</div>
                 <div class="col-xs-9 pull-left">{{ book.isbn }}</div>
-            </div>            
+            </div>
             <br>
             <button class="btn btn-warning" (click)="submitted=false">Add another book</button>
-          </div>
+        </div>
 
-</div>
+    </div>
 </section>

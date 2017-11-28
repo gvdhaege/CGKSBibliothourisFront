@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
 import {User} from '../user/User.class'
 import {Book} from '../book/Book.class'
+import {AddBook} from '../book/AddBook.class'
 
 @Injectable()
 export class BackendService {
@@ -26,4 +27,11 @@ export class BackendService {
 
         return this.http.get<Array<Book>>(`${environment.baseUrl}/user/allBooks` , { headers: header });
     }
+
+    addBook(addBook : AddBook) : Observable<any>{        
+        let header = new HttpHeaders({ 'Authorization' : 'Basic ' + btoa('seppe:password')
+    });
+        return this.http
+        .post(`${environment.baseUrl}/user/addBook`, addBook, { headers: header });
+        }
 }
