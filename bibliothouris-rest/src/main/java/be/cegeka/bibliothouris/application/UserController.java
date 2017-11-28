@@ -4,6 +4,7 @@ import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.books.BookDto;
 import be.cegeka.bibliothouris.domain.books.BookService;
 import be.cegeka.bibliothouris.domain.users.User;
+import be.cegeka.bibliothouris.domain.users.UserDto;
 import be.cegeka.bibliothouris.domain.users.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
@@ -31,9 +32,9 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping
-    public void addUser(@RequestParam(value = "name", required = true) String name) {
-        userService.addUser(name);
+    @PostMapping(path = "/addUser", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void addUser(@RequestBody UserDto userDto) {
+        userService.addUser(userDto);
     }
 
     @PostMapping(path = "/addBook", consumes = MediaType.APPLICATION_JSON_VALUE)

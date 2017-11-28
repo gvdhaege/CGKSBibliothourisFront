@@ -1,11 +1,8 @@
 package be.cegeka.bibliothouris.domain.users;
 
-import be.cegeka.bibliothouris.domain.books.BookRepository;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Named
 public class UserService {
@@ -13,8 +10,11 @@ public class UserService {
     @Inject
     private UserRepository userRepository;
 
-    public void addUser(String name){
-        userRepository.addUser(new User(name));
+    @Inject
+    private UserMapper userMapper;
+
+    public void addUser(UserDto userDto){
+        userRepository.addUser(userMapper.createUserFromDto(userDto));
     }
 
     public List<User> getAllUsers() {
