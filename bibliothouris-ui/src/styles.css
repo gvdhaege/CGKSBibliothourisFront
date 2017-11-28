@@ -24,3 +24,17 @@
     border-left: 5px solid #a94442; /* red */
   }
 /* End of FORMS CSS */
+
+#footer {
+    position: fixed;
+    height: 50px;
+    background-color: rgb(4, 0, 255);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+body {
+    margin-bottom:50px;
+}
