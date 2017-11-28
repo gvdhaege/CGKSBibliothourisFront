@@ -7,10 +7,10 @@
                 <th>Author first name</th>
                 <th>Author last name</th>
                 <th>ISBN</th>
-            </tr>    
+            </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of filterBooksBySearch(search)">
+            <tr *ngFor="let book of filterBooksBySearch(search)" [ngClass]="{active: selectedBook === book}" (click)="selectBook(book, $event)">
                 <th scope="row">{{book.id}}</th>
                 <th scope="row">{{book.title}}</th>
                 <th scope="row">{{book.authorFirstName}}</th>
@@ -21,12 +21,19 @@
     </table>
 </section>
 
+<section id="bookDetails" class="tiny-dialog fader" *ngIf="selectedBook">
+    <h3>{{book.title}}</h3>
+    <p>{{book.authorFirstName}}</p>
+    <p>{{book.authorLastName}}</p>
+    <p>{{book.isbn}}</p>
+</section>
+
 <section>
     <!--<label for="dropdown">Search by: </label>-->
     <!--<select id="dropdown" name="searchType" [(ngModel)]="searchType">-->
-        <!--<option value="title">Title</option>-->
-        <!--<option value="isbn">ISBN</option>-->
-        <!--<option value="name">Name</option>-->
+    <!--<option value="title">Title</option>-->
+    <!--<option value="isbn">ISBN</option>-->
+    <!--<option value="name">Name</option>-->
     <!--</select>-->
     <label for="invulveld">Search by title for: </label>
     <input id="invulveld" placeholder="Type here" [(ngModel)]="search">
