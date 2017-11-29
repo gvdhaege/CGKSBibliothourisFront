@@ -1,44 +1,44 @@
-
-    <section>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Book title</th>
-                    <th>Author first name</th>
-                    <th>Author last name</th>
-                    <th>ISBN</th>
-                </tr>
-            </thead>               
-                <tbody>
-                    <tr *ngFor="let book of books" [ngClass]="{active: selectBookDetails === book}" (click)="selectBookDetails(book)">
-                        <th scope="row">{{book.id}}</th>
-                        <th scope="row">{{book.title}}</th>
-                        <th scope="row">{{book.authorFirstName}}</th>
-                        <th scope="row">{{book.authorLastName}}</th>
-                        <th scope="row">{{book.isbn}}</th>
-                    </tr>
-                
-                </tbody>
-        </table>
-    </section>
+<section>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Book title</th>
+                <th>Author first name</th>
+                <th>Author last name</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
 
 
+        <tbody>
+            <tr *ngFor="let book of books" [ngClass]="{active: selectBookDetails === book}" (click)="selectBookDetails(book)">
+                <th scope="row">{{book.id}}</th>
+                <th scope="row">{{book.title}}</th>
+                <th scope="row">{{book.authorFirstName}}</th>
+                <th scope="row">{{book.authorLastName}}</th>
+                <th scope="row">{{book.isbn}}</th>
+            </tr>
+        </tbody>
 
 
-    <section id="bookDetails" class="tiny-dialog fader" *ngIf="selectedBook">
-        <h3>{{selectedBook.title}}</h3>
-        <p>hier komt nog tekst</p>
-    </section>
+    </table>
+</section>
+
+<section id="bookDetails" class="bookDetails" *ngIf="selectedBook" (click)="deselectBookDetails()">
+    <h3>Title of the book: {{selectedBook.title}}</h3>
+    <p>Description: {{selectedBook.description}}</p>
+    <p>Author first name: {{selectedBook.authorFirstName}}</p>
+    <p>Author last name: {{selectedBook.authorLastName}}</p>
+</section>
 
 
-    <section>
-        <label for="dropdown">search By : </label>
-        <select class="form-control" id="dropdown" required [(ngModel)]="searchType">
-            <option value="title">title</option>
-            <option value="name">name</option>
-            <option value="isbn">isbn</option>
-        </select>
-        <input [(ngModel)]="searchString" type="text" (input)="filterBooksBySearch(searchString, searchType)">
-    </section>
-
+<section>
+    <label for="dropdown">search By : </label>
+    <select class="form-control" id="dropdown" required [(ngModel)]="searchType">
+        <option value="title">title</option>
+        <option value="name">name</option>
+        <option value="isbn">isbn</option>
+    </select>
+    <input [(ngModel)]="searchString" type="text" (input)="filterBooksBySearch(searchString, searchType)">
+</section>

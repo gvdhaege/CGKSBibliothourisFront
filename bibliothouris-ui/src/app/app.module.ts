@@ -12,8 +12,6 @@ import { registerUser } from './registerUser/registerUser.component'
 import {appRoutes} from './app.routing'
 import 'hammerjs';
 
-
-
 import { AppComponent } from './app.component';
 //import { routing } from './app.routing';
 import { BackendModule } from './backend/backend.module';
