@@ -11,6 +11,7 @@ import { BackendService } from '../backend/backend.service'
 export class Users implements OnInit {
 
     users: Array<User> = [];
+    user =  new User(4 , "", "", "", "", "", "" );
 
     constructor(private backendService: BackendService) { }
 
@@ -21,4 +22,5 @@ export class Users implements OnInit {
             });
     }
 
+    
 }

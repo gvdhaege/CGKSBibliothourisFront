@@ -8,7 +8,8 @@ import { Users} from './user/users.component';
 import { Books} from './book/books.component';
 import { Librarian} from './librarian/librarian.component';
 import { AuthGuard } from './app.guard';
-
+import { registerUser } from './registerUser/registerUser.component'
+import {appRoutes} from './app.routing'
 import 'hammerjs';
 
 
@@ -18,18 +19,14 @@ import { AppComponent } from './app.component';
 import { BackendModule } from './backend/backend.module';
 import { from } from 'rxjs/observable/from';
 
-const appRoutes: Routes = [
-    { path: 'users', component: Users },
-    { path: 'books', component: Books },
-    { path: 'librarian', component: Librarian},
-];
 
 @NgModule({
   declarations: [
     AppComponent,
     Users,
     Books,
-    Librarian
+    Librarian,
+    registerUser
   ],
   imports: [
     BrowserModule,
