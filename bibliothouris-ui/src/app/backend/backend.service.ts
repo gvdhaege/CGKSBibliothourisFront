@@ -41,7 +41,7 @@ export class BackendService {
                 'Authorization' : 'Basic ' + btoa('seppe:password')
             });
 
-           return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByISBN?search=${searchString}` , { headers: header});
+           return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByISBN?isbn=${searchString}` , { headers: header});
     }
 
      filterBooksByTitle(search:string): Observable<Array<Book>> {

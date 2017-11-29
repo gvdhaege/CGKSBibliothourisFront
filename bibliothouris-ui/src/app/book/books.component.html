@@ -21,4 +21,6 @@
     </table>
 </section>
 
-
+<section>
+    <input [(ngModel)]= "searchString" type="text" (input)="filterBooksBySearch(searchString)">    
+</section>
