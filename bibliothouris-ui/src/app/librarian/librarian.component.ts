@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 
 import { BackendService } from '../backend/backend.service';
-import { addBook } from '../book/addbook';
+import { AddBook } from '../book/AddBook.class';
 
 @Component({
     selector: 'librarian',
@@ -10,17 +10,19 @@ import { addBook } from '../book/addbook';
 
 export class Librarian {
 
-    private title: string;
-    private authorFirstName: string;
-    private authorLastName: string;
-    private isbn: string;
 
-    constructor(private backendService: BackendService) { }
+    constructor(private backendService: BackendService) {}
 
-    book = new addBook(this.title,this.authorFirstName,this.authorLastName, this.isbn);
+    book = new AddBook("","","","");
 
     submitted = false;
 
      onSubmit() { this.submitted = true;}
+
+     addBook(){
+         this.backendService
+         .addBook(this.book)
+         .subscribe()
+     }
 
 }

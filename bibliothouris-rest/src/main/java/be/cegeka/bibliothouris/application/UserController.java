@@ -7,7 +7,6 @@ import be.cegeka.bibliothouris.domain.users.User;
 import be.cegeka.bibliothouris.domain.users.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -36,7 +35,7 @@ public class UserController {
         userService.addUser(name);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/addBook", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addBook(@RequestBody BookDto bookDto) {
         bookService.addBook(bookDto);
     }
@@ -46,4 +45,23 @@ public class UserController {
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
+
+    @RequestMapping(path = "/searchByISBN")
+    @GetMapping
+    public List<Book> searchByISBN(@RequestParam(value = "isbn", required = true) String isbn) {
+        return bookService.searchByISBN(isbn);
+    }
+
+    @RequestMapping(path = "/searchByTitle")
+    @GetMapping
+    public List<Book> searchByTitle(@RequestParam(value = "title", required = true) String title) {
+        return bookService.searchByTitle(title);
+    }
+
+    @RequestMapping(path = "/searchByName")
+    @GetMapping
+    public List<Book> searchByName(@RequestParam(value = "name", required = true) String name) {
+        return bookService.searchByName(name);
+    }
+
 }

@@ -1,5 +1,14 @@
-<ul>
-    <li *ngFor="let user of users">
-        {{user.name}} - {{user.id}}
-    </li>
-</ul>
+<table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+            </tr>    
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <th scope="row">{{user.id}}</th>
+                <th scope="row">{{user.name}}</th>
+            </tr>
+        </tbody>
+    </table>

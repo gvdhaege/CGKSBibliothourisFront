@@ -13,11 +13,24 @@ public class BookService {
     @Inject
     private BookMapper bookMapper;
 
-    public void addBook(BookDto bookDto){
+    public void addBook(BookDto bookDto) {
         bookRepository.addBook(bookMapper.createBookFromDto(bookDto));
     }
 
     public List<Book> getAllBooks() {
-        return  bookRepository.getAllBooks();
+        return bookRepository.getAllBooks();
+    }
+
+    public List<Book> searchByISBN(String isbn) {
+        return bookRepository.searchByISBN(isbn);
+    }
+
+    public List<Book> searchByName(String name) {
+        return bookRepository.searchByName(name);
+    }
+
+    public List<Book> searchByTitle(String title) {
+        return bookRepository.searchByTitle(title);
     }
 }
+
