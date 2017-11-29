@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 //import { routing } from './app.routing';
 import { BackendModule } from './backend/backend.module';
 import { from } from 'rxjs/observable/from';
+import { InfoBooksComponent } from './info-books/info-books.component';
 
 const appRoutes: Routes = [
     { path: 'users', component: Users },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     AppComponent,
     Users,
     Books,
-    Librarian
+    Librarian,
+    InfoBooksComponent
   ],
   imports: [
     BrowserModule,
