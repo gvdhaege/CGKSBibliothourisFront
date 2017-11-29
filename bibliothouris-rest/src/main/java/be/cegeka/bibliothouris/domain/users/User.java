@@ -1,5 +1,7 @@
 package be.cegeka.bibliothouris.domain.users;
 
+import com.sun.org.apache.xerces.internal.impl.xs.identity.IdentityConstraint;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,7 +25,10 @@ public class User {
     private String postalCode;
     @Column(name = "CITY")
     private String city;
-
+    @Column(name = "ROLE")
+    private String userRole;
+    @Column(name = "PASSWORD")
+    private String password;
 
     private User(){
     }
@@ -32,6 +37,7 @@ public class User {
         this.name = name;
         this.inss = inss;
         this.city = city;
+        this.userRole = "USER";
     }
 
     public User withFirstName(String firstName){
@@ -94,5 +100,25 @@ public class User {
 
     public String getPostalCode() {
         return postalCode;
+    }
+
+    public String getRole() {
+        return userRole;
+    }
+
+    public String getInss() {
+        return inss;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

@@ -5,8 +5,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 public class UserDetailsWrapper implements UserDetails {
 
@@ -19,17 +21,27 @@ public class UserDetailsWrapper implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
+        if (user.getRole().equals("USER") || user.getRole().equals("LIBRARIAN") || user.getRole().equals("ADMIN")) {
+            authorityList.add(new SimpleGrantedAuthority("ROLE_USER"));
+        }
+        if (user.getRole().equals("LIBRARIAN") || user.getRole().equals("ADMIN") ) {
+            authorityList.add(new SimpleGrantedAuthority("ROLE_LIBRARIAN"));
+        }
+        if (user.getRole().equals("ADMIN")) {
+            authorityList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
+        return authorityList;
     }
 
     @Override
     public String getPassword() {
-        return "password";
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getFirstName();
+        return user.getName();
     }
 
     @Override

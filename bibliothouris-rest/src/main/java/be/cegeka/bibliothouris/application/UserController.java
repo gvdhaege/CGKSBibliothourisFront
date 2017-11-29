@@ -26,7 +26,7 @@ public class UserController {
     private BookService bookService;
 
     @GetMapping
-    @Secured("ROLE_USER")
+    @Secured("ROLE_ADMIN")
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
@@ -36,29 +36,33 @@ public class UserController {
         userService.addUser(userDto);
     }
 
+    @Secured("ROLE_LIBRARIAN")
     @PostMapping(path = "/addBook", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addBook(@RequestBody BookDto bookDto) {
         bookService.addBook(bookDto);
     }
 
+    @Secured("ROLE_USER")
     @RequestMapping(path = "/allBooks")
     @GetMapping
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
+    @Secured("ROLE_USER")
     @RequestMapping(path = "/searchByISBN")
     @GetMapping
     public List<Book> searchByISBN(@RequestParam(value = "isbn", required = true) String isbn) {
         return bookService.searchByISBN(isbn);
     }
-
+    @Secured("ROLE_USER")
     @RequestMapping(path = "/searchByTitle")
     @GetMapping
     public List<Book> searchByTitle(@RequestParam(value = "title", required = true) String title) {
         return bookService.searchByTitle(title);
     }
 
+    @Secured("ROLE_USER")
     @RequestMapping(path = "/searchByName")
     @GetMapping
     public List<Book> searchByName(@RequestParam(value = "name", required = true) String name) {

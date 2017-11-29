@@ -16,7 +16,7 @@ export class BackendService {
     getUsers(): Observable < Array < User >> {
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('Test Admin:password')
         });
 
         return this.http.get < Array < User >> (`${environment.baseUrl}/user`, {
@@ -27,7 +27,7 @@ export class BackendService {
     getBooks(): Observable < Array < Book >> {
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('Test User:password')
         });
 
         return this.http.get < Array < Book >> (`${environment.baseUrl}/user/allBooks`, {
@@ -37,7 +37,7 @@ export class BackendService {
 
     addBook(addBook: AddBook): Observable < any > {
         let header = new HttpHeaders({
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('Test Librarian:password')
         });
         return this.http
             .post(`${environment.baseUrl}/user/addBook`, addBook, {
@@ -56,7 +56,7 @@ export class BackendService {
         let searchString: string = search;
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('Test User:password')
         });
 
         return this.http.get < Array < Book >> (`${environment.baseUrl}/user/searchByISBN?isbn=${searchString}`, {
@@ -68,7 +68,7 @@ export class BackendService {
         let searchString: string = search;
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('Test User:password')
         });
 
         return this.http.get < Array < Book >> (`${environment.baseUrl}/user/searchByTitle?title=${searchString}`, {
@@ -80,7 +80,7 @@ export class BackendService {
         let searchString: string = search;
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('Test User:password')
         });
 
         return this.http.get < Array < Book >> (`${environment.baseUrl}/user/searchByName?name=${searchString}`, {
