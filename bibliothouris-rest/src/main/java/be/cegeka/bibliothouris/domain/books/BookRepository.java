@@ -18,4 +18,12 @@ public class BookRepository {
     public List getAllBooks() {
         return entityManager.createQuery("select b from Book b").getResultList();
     }
+
+    public List<Book> searchByISBN(String isbn) {
+        return entityManager
+                .createQuery("select b from Book b where b.isbn like :isbn", Book.class)
+//                .setParameter("isbn", isbn.replaceAll("\\*", "%"))
+                .setParameter("isbn", "%"+isbn+"%")
+                .getResultList();
+    }
 }

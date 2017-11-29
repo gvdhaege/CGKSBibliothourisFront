@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of filterBooksBySearch(search)" 
+            <tr *ngFor="let book of books"
                 [ngClass]="{active: selectBookDetails === book}"
                 (click)="selectBookDetails(book)">
                 <th scope="row">{{book.id}}</th>
@@ -25,33 +25,17 @@
 
 <section id="bookDetails" class="tiny-dialog fader" *ngIf="selectedBook">
     <h3>{{selectedBook.title}}</h3>
-
-
-
     <p>hier komt nog tekst</p>
 </section>
 
+
+
 <section>
-    <!--<label for="dropdown">Search by: </label>-->
-    <!--<select id="dropdown" name="searchType" [(ngModel)]="searchType">-->
-    <!--<option value="title">Title</option>-->
-    <!--<option value="isbn">ISBN</option>-->
-    <!--<option value="name">Name</option>-->
-    <!--</select>-->
-    <label for="invulveld">Search by title for: </label>
-    <input id="invulveld" placeholder="Type here" [(ngModel)]="search">
+    <label for="dropdown">search By : </label>
+    <select class="form-control" id="dropdown" required [(ngModel)]="searchType">
+        <option value="title">title</option>
+        <option value="name">name</option>
+        <option value="isbn">isbn</option>
+    </select>
+    <input [(ngModel)]="searchString" type="text" (input)="filterBooksBySearch(searchString, searchType)">
 </section>
-
-<!--dit hoort, als het juist geimplementeerd is hierboven in books.component.ts, but commenting doesn't work thereo-->
-<!--!!, searchType: string hoort nog in de parameters!!-->
-<!--filterBooksBySearch(search: string, searchType: string){-->
-<!--if(searchType === "title"){-->
-<!--return this.books.filter(books => books.title.toUpperCase().includes(search.toUpperCase()));-->
-<!--}-->
-<!--if(searchType === "isbn"){-->
-<!--return this.books.filter(books => books.isbn.toUpperCase().includes(search.toUpperCase()));-->
-<!--}-->
-<!--if(searchType === "name"){-->
-<!--return this.books.filter(books => books.authorLastName.toUpperCase().includes(search.toUpperCase()));-->
-
-<!--}-->

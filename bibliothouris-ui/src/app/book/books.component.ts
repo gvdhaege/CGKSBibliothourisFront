@@ -3,13 +3,13 @@ import { Component, OnInit} from '@angular/core';
 import { Book } from './Book.class'
 import { BackendService } from '../backend/backend.service'
 import { Console } from '@angular/core/src/console';
+import { OnChanges } from '@angular/core';
+
 
 @Component({
     selector: 'books',
     templateUrl: './books.component.html'
 })
-
-
 export class Books implements OnInit {
 
     selectedBook: Book;
@@ -24,13 +24,26 @@ export class Books implements OnInit {
             });
     }
 
-    search: string ='';
-    searchType : string = '';
+    searchString: string = '';
+    searchType: string = '';
 
-    filterBooksBySearch(search: string){
+    filterBooksBySearch(searchString: string, searchType: string) {
 
-        return this.books.filter(books => books.title.toUpperCase().includes(search.toUpperCase()));
+        if (searchType === "isbn") {
+            return this.backendService.filterBooksByISBN(searchString)
+                .subscribe(books => this.books = books);
         }
+
+        if (searchType === "title") {
+            return this.backendService.filterBooksByTitle(searchString)
+                .subscribe(books => this.books = books);
+        }
+
+        if (searchType === "name") {
+            return this.backendService.filterBooksByName(searchString)
+                .subscribe(books => this.books = books);
+        }
+    }
 
     selectBookDetails(book: Book){
         this.selectedBook = book;
@@ -40,7 +53,11 @@ export class Books implements OnInit {
         this.selectedBook = null;
     }
 
-
 }
+
+
+
+
+
 
 
