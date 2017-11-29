@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 
 import { Book } from './Book.class'
 import { BackendService } from '../backend/backend.service'
+import { Console } from '@angular/core/src/console';
 import { OnChanges } from '@angular/core';
 
 
@@ -47,9 +48,12 @@ export class Books implements OnInit {
     selectBookDetails(book: Book){
         this.selectedBook = book;
     }
+
+    deselectBookDetails(){
+        this.selectedBook = null;
+    }
+
 }
-
-
 
 
 
