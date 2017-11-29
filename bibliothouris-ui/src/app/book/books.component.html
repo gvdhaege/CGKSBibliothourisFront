@@ -7,7 +7,7 @@
                 <th>Author first name</th>
                 <th>Author last name</th>
                 <th>ISBN</th>
-            </tr>    
+            </tr>
         </thead>
         <tbody>
             <tr *ngFor="let book of books">
@@ -28,6 +28,14 @@
     <p>{{book.isbn}}</p>
 </section>
 
+
+
 <section>
-    <input [(ngModel)]= "searchString" type="text" (input)="filterBooksBySearch(searchString)">
+    <label for="dropdown">search By : </label>
+    <select class="form-control" id="dropdown" required [(ngModel)]="searchType">
+        <option value="title">title</option>
+        <option value="name">name</option>
+        <option value="isbn">isbn</option>
+    </select>
+    <input [(ngModel)]="searchString" type="text" (input)="filterBooksBySearch(searchString, searchType)">
 </section>
