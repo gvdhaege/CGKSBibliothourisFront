@@ -24,24 +24,24 @@ export class Books implements OnInit {
     }
 
     searchString: string = '';
-    // searchType: string = '';
+    searchType: string = '';
 
-    filterBooksBySearch(searchString: string){ //, searchType: string) {
+    filterBooksBySearch(searchString: string, searchType: string) {
 
-        // if (searchType === "isbn") {
+        if (searchType === "isbn") {
             return this.backendService.filterBooksByISBN(searchString)
                 .subscribe(books => this.books = books);
-        // }
+        }
 
-        // if (searchType === "title") {
-        //     return this.backendService.filterBooksByTitle(search)
-        //         .subscribe(books => this.books = books);
-        // }
+        if (searchType === "title") {
+            return this.backendService.filterBooksByTitle(searchString)
+                .subscribe(books => this.books = books);
+        }
 
-        // if (searchType === "name") {
-        //     return this.backendService.filterBooksByName(search)
-        //         .subscribe(books => this.books = books);
-        // }
+        if (searchType === "name") {
+            return this.backendService.filterBooksByName(searchString)
+                .subscribe(books => this.books = books);
+        }
     }
 
     selectBookDetails(book: Book){
