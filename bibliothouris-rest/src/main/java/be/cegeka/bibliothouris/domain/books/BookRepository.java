@@ -22,7 +22,8 @@ public class BookRepository {
     public List<Book> searchByISBN(String isbn) {
         return entityManager
                 .createQuery("select b from Book b where b.isbn like :isbn", Book.class)
-                .setParameter("isbn", isbn.replaceAll("\\*", "%"))
+//                .setParameter("isbn", isbn.replaceAll("\\*", "%"))
+                .setParameter("isbn", "%"+isbn+"%")
                 .getResultList();
     }
 }

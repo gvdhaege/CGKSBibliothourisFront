@@ -1,7 +1,9 @@
 package be.cegeka.bibliothouris.application;
 
+import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.books.BookService;
 import be.cegeka.bibliothouris.domain.users.UserService;
+import org.assertj.core.api.Assertions;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -10,8 +12,12 @@ import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class UserControllerTest {
 
@@ -37,5 +43,17 @@ public class UserControllerTest {
     public void searchByISBN_shouldActicateCorrespondingMethod() throws Exception {
         userController.searchByISBN("123");
         verify(bookService).searchByISBN("123");
+    }
+
+
+    @Test
+    public void searchISBNShouldReturnListOfBooks() throws Exception {
+        Book testboek=new Book("test","mattia","romeo","123");
+        List<Book> testlist=new ArrayList<>();
+        testlist.add(testboek);
+        when(bookService.searchByISBN("123")).thenReturn(testlist);
+        Assertions.assertThat(userController.searchByISBN("123")).contains(testboek);
+
+
     }
 }

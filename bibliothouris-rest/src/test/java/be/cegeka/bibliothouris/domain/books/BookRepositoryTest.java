@@ -33,11 +33,15 @@ public class BookRepositoryTest {
 
     private Book testBoek;
     private Book testBoek2;
+    private Book testBoek3;
+
 
     @Before
     public void setUp(){
     testBoek = new Book("title", "first", "last", "isbn");
     testBoek2 = new Book("nogEenTitel", "Voornaam", "Achternaam", "56556");
+    testBoek3 = new Book("nogEenTitel", "Voornaam", "Achternaam", "123");
+    entityManager.persist(testBoek3);
     }
 
     @Test
@@ -54,6 +58,8 @@ public class BookRepositoryTest {
         Assertions.assertThat(bookRepository.getAllBooks()).contains(testBoek, testBoek2);
     }
 
-
-
+    @Test
+    public void searchByIsbnShouldReturnCorrectBook() throws Exception {
+        Assertions.assertThat(bookRepository.searchByISBN("123")).contains(testBoek3);
+    }
 }
