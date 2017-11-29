@@ -28,7 +28,9 @@ public class BookRepository {
 
     public List<Book> searchByName(String name) {
         return entityManager
-                .createQuery("select b from Book b where b.authorFirstName like :name", Book.class)
+                .createQuery("select b from Book b " +
+                        "where b.authorFirstName like :name " +
+                        "or b.authorLastName like :name", Book.class)
                 .setParameter("name", "%"+name+"%")
                 .getResultList();
     }
