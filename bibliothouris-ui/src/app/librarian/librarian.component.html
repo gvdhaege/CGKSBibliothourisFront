@@ -39,8 +39,8 @@
 
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <input type="textarea" class="form-control" id="description" required
-                           [(ngMosdel)]="book.description" name="description"
+                    <input type="text" class="form-control" id="description" required
+                           [(ngModel)]="book.description" name="description"
                            #description="ngModel">
                     <div [hidden]="description.valid || description.pristine"
                          class="alert alert-danger">
