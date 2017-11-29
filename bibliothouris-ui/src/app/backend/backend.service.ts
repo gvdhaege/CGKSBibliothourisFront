@@ -29,15 +29,42 @@ export class BackendService {
         return this.http.get<Array<Book>>(`${environment.baseUrl}/user/allBooks` , { headers: header });
     }
 
-    addBook(addBook : AddBook) : Observable<any>{        
+    addBook(addBook : AddBook) : Observable<any>{
         let header = new HttpHeaders({ 'Authorization' : 'Basic ' + btoa('seppe:password')
     });
         return this.http
         .post(`${environment.baseUrl}/user/addBook`, addBook, { headers: header });
         }
-    addUser(registerUser : RegisterUser) : Observable<any>{  
+    addUser(registerUser : RegisterUser) : Observable<any>{
         let header = new HttpHeaders({     });
         return this.http
         .post(`${environment.baseUrl}/user/addUser`,registerUser, {headers:header});
     }
+
+    filterBooksByISBN(search:string): Observable<Array<Book>> {
+    let searchString:string = search;
+    let header = new HttpHeaders({ 'Accept': 'application/json',
+                'Authorization' : 'Basic ' + btoa('seppe:password')
+            });
+
+           return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByISBN?isbn=${searchString}` , { headers: header});
+    }
+
+     filterBooksByTitle(search:string): Observable<Array<Book>> {
+        let searchString:string = search;
+        let header = new HttpHeaders({ 'Accept': 'application/json',
+                    'Authorization' : 'Basic ' + btoa('seppe:password')
+                });
+
+               return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByTitle?title=${searchString}` , { headers: header});
+        }
+
+        filterBooksByName(search:string): Observable<Array<Book>> {
+                let searchString:string = search;
+                let header = new HttpHeaders({ 'Accept': 'application/json',
+                            'Authorization' : 'Basic ' + btoa('seppe:password')
+                        });
+
+                       return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByName?name=${searchString}` , { headers: header});
+                }
 }

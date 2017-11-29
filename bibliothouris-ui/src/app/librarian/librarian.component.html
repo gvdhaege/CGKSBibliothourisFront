@@ -37,6 +37,17 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" required
+                           [(ngModel)]="book.description" name="description"
+                           #description="ngModel">
+                    <div [hidden]="description.valid || description.pristine"
+                         class="alert alert-danger">
+                        Author last name is required.
+                    </div>
+                </div>
+
                 <div class="isbn">
                     <label for="lastname">ISBN:</label>
                     <input type="text" class="form-control" id="isbn" required

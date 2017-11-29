@@ -4,7 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "BOOKS")
-public class Book {
+public class
+Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,16 +21,21 @@ public class Book {
     @Column(name = "AUTHOR_LAST_NAME")
     private String authorLastName;
 
+    @Column(name = "DESCRIPTION")
+    private String description;
+
     @Column(name = "ISBN")
     private String isbn;
 
     public Book() {
     }
 
-    public Book(String title, String authorFirstName, String authorLastName, String isbn) {
+
+    public Book(String title, String authorFirstName, String authorLastName, String description, String isbn) {
         this.title = title;
         this.authorFirstName = authorFirstName;
         this.authorLastName = authorLastName;
+        this.description = description;
         this.isbn = isbn;
     }
 
@@ -62,6 +68,10 @@ public class Book {
 
     public String getAuthorLastName() {
         return authorLastName;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getIsbn() {

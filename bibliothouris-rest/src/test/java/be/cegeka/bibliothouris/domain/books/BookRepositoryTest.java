@@ -2,6 +2,7 @@ package be.cegeka.bibliothouris.domain.books;
 
 import be.cegeka.bibliothouris.Application;
 import org.assertj.core.api.Assertions;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,11 +34,15 @@ public class BookRepositoryTest {
 
     private Book testBoek;
     private Book testBoek2;
+    private Book testBoek3;
+
 
     @Before
     public void setUp(){
-    testBoek = new Book("title", "first", "last", "isbn");
-    testBoek2 = new Book("nogEenTitel", "Voornaam", "Achternaam", "56556");
+    testBoek = new Book("title", "first", "last", "this is a book description", "isbn");
+    testBoek2 = new Book("nogEenTitel", "Voornaam", "Achternaam", "this is a book description", "56556");
+    testBoek3 = new Book("nogEenTitel", "Voornaam", "Achternaam", "this is a book description", "123");
+    entityManager.persist(testBoek3);
     }
 
     @Test
@@ -52,5 +57,18 @@ public class BookRepositoryTest {
         bookRepository.addBook(testBoek2);
 
         Assertions.assertThat(bookRepository.getAllBooks()).contains(testBoek, testBoek2);
+    }
+
+    @Test
+    public void searchByIsbnShouldReturnCorrectBook() throws Exception {
+        Assertions.assertThat(bookRepository.searchByISBN("123")).contains(testBoek3);
+    }
+    @Test
+    public void searchByTitleShouldReturnCorrectBook() throws Exception {
+        Assertions.assertThat(bookRepository.searchByTitle("nogEenTitel")).contains(testBoek3);
+    }
+    @Test
+    public void searchByNameShouldReturnCorrectBook() throws Exception {
+        Assertions.assertThat(bookRepository.searchByName("Voornaam")).contains(testBoek3);
     }
 }

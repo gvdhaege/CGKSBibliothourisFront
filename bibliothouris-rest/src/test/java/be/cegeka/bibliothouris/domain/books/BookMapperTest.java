@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 public class BookMapperTest {
     @Test
     public void createBookFromDto_givenABookDto_shouldReturnBook() throws Exception {
-        BookDto bookDto = new BookDto("titles for dummies", "tbow", "kastaars", "1337");
-        Book expected = new Book("titles for dummies", "tbow", "kastaars", "1337");
+        BookDto bookDto = new BookDto("titles for dummies", "tbow", "kastaars", "this is a book description", "1337");
+        Book expected = new Book("titles for dummies", "tbow", "kastaars", "this is a book description", "1337");
         ReflectionTestUtils.setField(expected, "id", 1);
         BookMapper bookMapper = new BookMapper();
         Book actual = bookMapper.createBookFromDto(bookDto);
