@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { BackendService } from '../backend/backend.service';
 import { AddBook } from '../book/AddBook.class';
@@ -11,18 +11,20 @@ import { AddBook } from '../book/AddBook.class';
 export class Librarian {
 
 
-    constructor(private backendService: BackendService) {}
+    constructor(private backendService: BackendService) { }
 
-    book = new AddBook("","","","");
+    book = new AddBook("", "", "", "");
 
     submitted = false;
 
-     onSubmit() { this.submitted = true;}
+    onSubmit() {
+        this.submitted = true;
+    }
 
-     addBook(){
-         this.backendService
-         .addBook(this.book)
-         .subscribe()
-     }
+    addBook() {
+        this.backendService
+            .addBook(this.book)
+            .subscribe()
+    }
 
 }

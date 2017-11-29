@@ -32,18 +32,32 @@ public class UserServiceTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private UserMapper userMapper;
+
+    UserDto seppeDto;
+    UserDto badgerDto;
+    UserDto narwhalDto;
+
+    @Before
+    public void setUp() throws Exception {
+        UserDto seppeDto = new UserDto("123456", "seppe", "seppe", "seppe", "seppe", "seppe", "seppe");
+        UserDto badgerDto = new UserDto("123654", "badger", "badger", "badger", "badger", "badger", "badger");
+        UserDto narwhalDto = new UserDto("654123", "narwhal", "narwhal", "narwhal", "narwhal", "narwhal", "narwhal");
+    }
+
     @Test
     public void addUser_ShouldCallUserRepository() throws Exception {
-        userService.addUser("Seppe");
+        userService.addUser(seppeDto);
 
-        verify(userRepository).addUser(new User( "Seppe"));
+        verify(userRepository).addUser(userMapper.createUserFromDto(seppeDto));
     }
 
     @Test
     public void getAllUsers() throws Exception {
-        User user1 = new User( "Seppe");
-        User user2 = new User( "Sanne");
-        User user3 = new User( "Xan");
+        User user1 = userMapper.createUserFromDto(seppeDto);
+        User user2 = userMapper.createUserFromDto(badgerDto);
+        User user3 = userMapper.createUserFromDto(narwhalDto);
 
         when(userRepository.getAllUsers()).thenReturn(Arrays.asList(user1, user2));
 

@@ -1,6 +1,7 @@
 package be.cegeka.bibliothouris.domain.users;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -91,5 +92,27 @@ public class UserTest {
                         .withName("Seppe")
                         .build());
     }
+
+    @Test
+    public void withFirstName_shouldAddFirstName() throws Exception {
+     User testUser = user.withFirstName("Gielen");
+     assertThat(user.getFirstName()).isEqualToIgnoringCase("Gielen");
+    }
+    @Test
+    public void withStreet_shouldAddStreet() throws Exception {
+     User testUser = user.withStreet("Gielen");
+     assertThat(user.getStreet()).isEqualToIgnoringCase("Gielen");
+    }
+    @Test
+    public void withNumber_shouldAddNumber() throws Exception {
+     User testUser = user.withNumber("Gielen");
+     assertThat(user.getNumber()).isEqualToIgnoringCase("Gielen");
+    }
+    @Test
+    public void withPostalCode_shouldAddPostalCode() throws Exception {
+     User testUser = user.withPostalCode("Gielen");
+     assertThat(user.getPostalCode()).isEqualToIgnoringCase("Gielen");
+    }
+
 
 }

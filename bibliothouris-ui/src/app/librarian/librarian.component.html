@@ -17,7 +17,7 @@
 
                 <div class="form-group">
                     <label for="firstname">Author first name:</label>
-                    <input type="text" class="form-control" id="firstname" required
+                    <input type="text" class="form-control" id="firstname"
                            [(ngModel)]="book.authorFirstName" name="authorFirstName"
                            #firstname="ngModel">
                     <div [hidden]="firstname.valid || firstname.pristine"
@@ -39,7 +39,7 @@
 
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <input type="text" class="form-control" id="description" required
+                    <input type="text" class="form-control" id="description"
                            [(ngModel)]="book.description" name="description"
                            #description="ngModel">
                     <div [hidden]="description.valid || description.pristine"
