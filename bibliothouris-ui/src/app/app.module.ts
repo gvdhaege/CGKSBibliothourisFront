@@ -20,11 +20,11 @@ import { BackendModule } from './backend/backend.module';
 import { from } from 'rxjs/observable/from';
 import { InfoBooksComponent } from './info-books/info-books.component';
 
-const appRoutes: Routes = [
-    { path: 'users', component: Users },
-    { path: 'books', component: Books },
-    { path: 'librarian', component: Librarian},
-];
+// const appRoutes: Routes = [
+//     { path: 'users', component: Users },                     DEZE SHIT UNCOMMENTEN MAAKT ALLES KAPOT DUS DELETE PLS TENZIJ GE HET KUNT DOEN WERKEN
+//     { path: 'books', component: Books },
+//     { path: 'librarian', component: Librarian},
+// ];
 
 @NgModule({
   declarations: [
