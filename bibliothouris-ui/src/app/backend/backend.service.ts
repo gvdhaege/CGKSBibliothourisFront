@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment'
 import {User} from '../user/User.class'
 import {Book} from '../book/Book.class'
 import {AddBook} from '../book/AddBook.class'
+import {RegisterUser} from '../user/registerUser.class'
 
 @Injectable()
 export class BackendService {
@@ -34,4 +35,9 @@ export class BackendService {
         return this.http
         .post(`${environment.baseUrl}/user/addBook`, addBook, { headers: header });
         }
+    addUser(registerUser : RegisterUser) : Observable<any>{  
+        let header = new HttpHeaders({     });
+        return this.http
+        .post(`${environment.baseUrl}/user/addUser`,registerUser, {headers:header});
+    }
 }

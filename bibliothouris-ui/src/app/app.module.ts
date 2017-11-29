@@ -8,6 +8,7 @@ import { Users} from './user/users.component';
 import { Books} from './book/books.component';
 import { Librarian} from './librarian/librarian.component';
 import { AuthGuard } from './app.guard';
+import { registerUser } from './registerUser/registerUser.component'
 
 import 'hammerjs';
 
@@ -20,7 +21,8 @@ import { BackendModule } from './backend/backend.module';
     AppComponent,
     Users,
     Books,
-    Librarian
+    Librarian,
+    registerUser
   ],
   imports: [
     BrowserModule,

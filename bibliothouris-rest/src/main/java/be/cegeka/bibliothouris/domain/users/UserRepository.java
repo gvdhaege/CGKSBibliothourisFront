@@ -26,4 +26,9 @@ public class UserRepository {
                 .setParameter("name", name)
                 .getSingleResult();
     }
+    public User getUserByFirstName(String name) {
+        return entityManager.createQuery("select u from User u where u.firstName like :name", User.class)
+                .setParameter("name", name)
+                .getSingleResult();
+    }
 }

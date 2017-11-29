@@ -9,6 +9,9 @@ public class UserDto {
     private String postalCode;
     private String city;
 
+    private UserDto() {
+    }
+
     public UserDto(String inss, String lastName, String firstName, String street, String number, String postalCode, String city) {
         this.inss = inss;
         this.lastName = lastName;
