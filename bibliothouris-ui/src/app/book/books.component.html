@@ -1,11 +1,24 @@
 <section>
-    <div>
-        <ul>
-            <li *ngFor="let book of books">
-                {{book.id}} - {{book.title}} -{{book.authorFirstName}} -{{book.authorLastName}} -{{book.isbn}}
-            </li>
-        </ul>
-    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Book title</th>
+                <th>Author first name</th>
+                <th>Author last name</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <th scope="row">{{book.id}}</th>
+                <th scope="row">{{book.title}}</th>
+                <th scope="row">{{book.authorFirstName}}</th>
+                <th scope="row">{{book.authorLastName}}</th>
+                <th scope="row">{{book.isbn}}</th>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 

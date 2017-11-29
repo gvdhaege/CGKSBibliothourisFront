@@ -36,7 +36,7 @@ public class UserController {
         userService.addUser(name);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/addBook", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addBook(@RequestBody BookDto bookDto){
         bookService.addBook(bookDto);
     }

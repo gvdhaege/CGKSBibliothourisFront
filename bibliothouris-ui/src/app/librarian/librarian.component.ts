@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 
 import { BackendService } from '../backend/backend.service';
-import { addBook } from '../book/addbook';
+import { AddBook } from '../book/AddBook.class';
 
 @Component({
     selector: 'librarian',
@@ -15,9 +15,17 @@ export class Librarian {
     private authorLastName: string;
     private isbn: string;
 
-    constructor(private backendService: BackendService) { }
+    // const body = {
+    //     title:this.title,
+    //     authorFirstName:this.authorFirstName,
+    //     authorLastName:this.authorLastName,
+    //     isbn:this.isbn
+    // };
 
-    book = new addBook(this.title,this.authorFirstName,this.authorLastName, this.isbn);
+    // constructor(private backendService: BackendService) { }
+
+    book = new AddBook(this.title,this.authorFirstName,this.authorLastName, this.isbn);
+
 
     submitted = false;
 
