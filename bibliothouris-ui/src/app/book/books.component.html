@@ -10,7 +10,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of filterBooksBySearch(search)" [ngClass]="{active: selectedBook === book}" (click)="selectBook(book, $event)">
+            <tr *ngFor="let book of filterBooksBySearch(search)" 
+                [ngClass]="{active: selectBookDetails === book}"
+                (click)="selectBookDetails(book)">
                 <th scope="row">{{book.id}}</th>
                 <th scope="row">{{book.title}}</th>
                 <th scope="row">{{book.authorFirstName}}</th>
@@ -22,10 +24,11 @@
 </section>
 
 <section id="bookDetails" class="tiny-dialog fader" *ngIf="selectedBook">
-    <h3>{{book.title}}</h3>
-    <p>{{book.authorFirstName}}</p>
-    <p>{{book.authorLastName}}</p>
-    <p>{{book.isbn}}</p>
+    <h3>{{selectedBook.title}}</h3>
+
+
+
+    <p>hier komt nog tekst</p>
 </section>
 
 <section>

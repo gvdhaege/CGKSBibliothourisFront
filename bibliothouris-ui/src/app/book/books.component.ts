@@ -2,12 +2,14 @@ import { Component, OnInit} from '@angular/core';
 
 import { Book } from './Book.class'
 import { BackendService } from '../backend/backend.service'
-
+import { Console } from '@angular/core/src/console';
 
 @Component({
     selector: 'books',
     templateUrl: './books.component.html'
 })
+
+
 export class Books implements OnInit {
 
     selectedBook: Book;
@@ -32,6 +34,10 @@ export class Books implements OnInit {
 
     selectBookDetails(book: Book){
         this.selectedBook = book;
+    }
+
+    deselectBookDetails(){
+        this.selectedBook = null;
     }
 
 
