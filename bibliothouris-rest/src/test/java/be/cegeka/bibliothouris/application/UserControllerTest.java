@@ -48,7 +48,7 @@ public class UserControllerTest {
 
     @Test
     public void searchISBNShouldReturnListOfBooks() throws Exception {
-        Book testboek=new Book("test","mattia","romeo","123");
+        Book testboek=new Book("test","mattia","romeo","this is a book description","123");
         List<Book> testlist=new ArrayList<>();
         testlist.add(testboek);
         when(bookService.searchByISBN("123")).thenReturn(testlist);

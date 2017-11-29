@@ -39,10 +39,10 @@ public class BookServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        book1 = new Book("titel", "voornaam", "achternaam", "123");
-        book2 = new Book("Gerri de Fixer", "Gerri", "vdhaege", "12555");
-        book3 = new Book("Erwin's Angels", "Erwin", "Jacobs", "127553");
-        book4 = new Book("nieuw boekje", "Mattia", "Romeo", "1288953");
+        book1 = new Book("titel", "voornaam", "achternaam","this is a book description", "123");
+        book2 = new Book("Gerri de Fixer", "Gerri", "vdhaege","this is a book description", "12555");
+        book3 = new Book("Erwin's Angels", "Erwin", "Jacobs","this is a book description", "127553");
+        book4 = new Book("nieuw boekje", "Mattia", "Romeo","this is a book description", "1288953");
     }
 
     @Test
@@ -59,14 +59,14 @@ public class BookServiceTest {
 
     @Test
     public void addBook_shouldCallOnBookRepository() throws Exception {
-        bookService.addBook(new BookDto("titel", "voornaam", "achetrnaam" ,"123"));
+        bookService.addBook(new BookDto("titel", "voornaam", "achetrnaam","this is a book description" ,"123"));
         verify(bookRepository).addBook(bookMapper.createBookFromDto(bookDto));
     }
 
 
     @Test
     public void searchByISBN_shouldBookRepositorySearchByISBN() throws Exception {
-        Book testboek=new Book("test","mattia","romeo","123");
+        Book testboek=new Book("test","mattia","romeo", "this is a book description","123");
         List<Book> testlist=new ArrayList<>();
         testlist.add(testboek);
         when(bookRepository.searchByISBN("123")).thenReturn(testlist);
