@@ -37,13 +37,13 @@ public class UserController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void addBook(@RequestBody BookDto bookDto){
+    public void addBook(@RequestBody BookDto bookDto) {
         bookService.addBook(bookDto);
     }
 
     @RequestMapping(path = "/allBooks")
     @GetMapping
     public List<Book> getAllBooks() {
-       return bookService.getAllBooks();
+        return bookService.getAllBooks();
     }
 }
