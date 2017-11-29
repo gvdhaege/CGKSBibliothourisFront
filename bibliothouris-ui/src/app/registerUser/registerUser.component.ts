@@ -2,10 +2,10 @@ import { Component, OnInit} from '@angular/core';
 
 import { User } from '../user/User.class'
 import { BackendService } from '../backend/backend.service'
-import { registerUser} from '../user/RegisterUser.class'
+import { RegisterUser} from '../user/RegisterUser.class'
 
 @Component({
-    selector: 'registerUser',
+    selector: 'RegisterUser',
     templateUrl: './registerUser.component.html'
 })
 export class registerUser implements OnInit {
