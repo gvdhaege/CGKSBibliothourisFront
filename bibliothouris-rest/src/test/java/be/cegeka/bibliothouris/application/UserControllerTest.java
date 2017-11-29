@@ -42,9 +42,9 @@ public class UserControllerTest {
     }
 
     @Test
-    public void searchByISBN_ShouldReturnListOfBooks() throws Exception {
-        Book testboek = new Book("test", "mattia", "romeo", "123");
-        List<Book> testlist = new ArrayList<>();
+    public void searchISBNShouldReturnListOfBooks() throws Exception {
+        Book testboek=new Book("test","mattia","romeo","this is a book description","123");
+        List<Book> testlist=new ArrayList<>();
         testlist.add(testboek);
         when(bookService.searchByISBN("123")).thenReturn(testlist);
         Assertions.assertThat(userController.searchByISBN("123")).contains(testboek);

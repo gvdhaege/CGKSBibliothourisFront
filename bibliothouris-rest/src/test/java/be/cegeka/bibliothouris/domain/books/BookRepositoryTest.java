@@ -39,9 +39,9 @@ public class BookRepositoryTest {
 
     @Before
     public void setUp(){
-    testBoek = new Book("title", "first", "last", "isbn");
-    testBoek2 = new Book("nogEenTitel", "Voornaam", "Achternaam", "56556");
-    testBoek3 = new Book("nogEenTitel", "Voornaam", "Achternaam", "123");
+    testBoek = new Book("title", "first", "last", "this is a book description", "isbn");
+    testBoek2 = new Book("nogEenTitel", "Voornaam", "Achternaam", "this is a book description", "56556");
+    testBoek3 = new Book("nogEenTitel", "Voornaam", "Achternaam", "this is a book description", "123");
     entityManager.persist(testBoek3);
     }
 

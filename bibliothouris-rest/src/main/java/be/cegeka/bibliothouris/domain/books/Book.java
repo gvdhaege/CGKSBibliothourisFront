@@ -21,16 +21,21 @@ Book {
     @Column(name = "AUTHOR_LAST_NAME")
     private String authorLastName;
 
+    @Column(name = "DESCRIPTION")
+    private String description;
+
     @Column(name = "ISBN")
     private String isbn;
 
     public Book() {
     }
 
-    public Book(String title, String authorFirstName, String authorLastName, String isbn) {
+
+    public Book(String title, String authorFirstName, String authorLastName, String description, String isbn) {
         this.title = title;
         this.authorFirstName = authorFirstName;
         this.authorLastName = authorLastName;
+        this.description = description;
         this.isbn = isbn;
     }
 
@@ -63,6 +68,10 @@ Book {
 
     public String getAuthorLastName() {
         return authorLastName;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getIsbn() {
