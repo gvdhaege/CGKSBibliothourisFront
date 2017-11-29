@@ -33,12 +33,18 @@ public class UserRepositoryTest {
     @PersistenceContext
     private EntityManager entityManager;
 
-    private User seppe, kiki;
+    private User seppe, kiki, testUser, testLibrarian, testAdmin;
 
     @Before
     public void setup(){
         seppe = aUser().withName("Seppe").build();
         kiki = aUser().withName("Kiki").build();
+        testUser = entityManager.createQuery("select u from User u where u.name like 'Test User'", User.class)
+                .getSingleResult();
+        testLibrarian = entityManager.createQuery("select u from User u where u.name like 'Test Librarian'", User.class)
+                .getSingleResult();
+        testAdmin= entityManager.createQuery("select u from User u where u.name like 'Test Admin'", User.class)
+                .getSingleResult();
 
         entityManager.persist(seppe);
         entityManager.persist(kiki);
@@ -48,7 +54,7 @@ public class UserRepositoryTest {
     public void getAllUsers() throws Exception {
         List<User> users = userRepository.getAllUsers();
 
-        assertThat(users).containsOnly(seppe, kiki);
+        assertThat(users).containsOnly(seppe, kiki,testAdmin,testLibrarian,testUser);
     }
 
     @Test
