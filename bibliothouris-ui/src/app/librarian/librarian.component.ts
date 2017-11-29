@@ -10,25 +10,19 @@ import { AddBook } from '../book/AddBook.class';
 
 export class Librarian {
 
-    private title: string;
-    private authorFirstName: string;
-    private authorLastName: string;
-    private isbn: string;
 
-    // const body = {
-    //     title:this.title,
-    //     authorFirstName:this.authorFirstName,
-    //     authorLastName:this.authorLastName,
-    //     isbn:this.isbn
-    // };
+    constructor(private backendService: BackendService) {}
 
-    // constructor(private backendService: BackendService) { }
-
-    book = new AddBook(this.title,this.authorFirstName,this.authorLastName, this.isbn);
-
+    book = new AddBook("","","","");
 
     submitted = false;
 
      onSubmit() { this.submitted = true;}
+
+     addBook(){
+         this.backendService
+         .addBook(this.book)
+         .subscribe()
+     }
 
 }

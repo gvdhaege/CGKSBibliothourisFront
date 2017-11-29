@@ -7,7 +7,7 @@
                 <th>Author first name</th>
                 <th>Author last name</th>
                 <th>ISBN</th>
-            </tr>
+            </tr>    
         </thead>
         <tbody>
             <tr *ngFor="let book of books">
@@ -21,6 +21,13 @@
     </table>
 </section>
 
+<section id="bookDetails" class="tiny-dialog fader" *ngIf="selectedBook">
+    <h3>{{book.title}}</h3>
+    <p>{{book.authorFirstName}}</p>
+    <p>{{book.authorLastName}}</p>
+    <p>{{book.isbn}}</p>
+</section>
+
 <section>
-    <input [(ngModel)]= "searchString" type="text" (input)="filterBooksBySearch(searchString)">    
+    <input [(ngModel)]= "searchString" type="text" (input)="filterBooksBySearch(searchString)">
 </section>

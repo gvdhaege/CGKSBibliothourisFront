@@ -50,7 +50,7 @@ export class BackendService {
                     'Authorization' : 'Basic ' + btoa('seppe:password')
                 });
 
-               return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByTitle?search=${searchString}` , { headers: header});
+               return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByTitle?title=${searchString}` , { headers: header});
         }
 
         filterBooksByName(search:string): Observable<Array<Book>> {
@@ -59,6 +59,6 @@ export class BackendService {
                             'Authorization' : 'Basic ' + btoa('seppe:password')
                         });
 
-                       return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByName?search=${searchString}` , { headers: header});
+                       return this.http.get<Array<Book>>(`${environment.baseUrl}/user/searchByName?name=${searchString}` , { headers: header});
                 }
 }
