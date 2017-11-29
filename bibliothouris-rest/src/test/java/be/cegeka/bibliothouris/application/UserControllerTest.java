@@ -52,7 +52,7 @@ public class UserControllerTest {
 
     @Test
     public void searchByTitle_ShouldReturnListOfBooks() throws Exception {
-        Book testboek = new Book("test", "mattia", "romeo", "123");
+        Book testboek = new Book("test","mattia","romeo","this is a book description","123");
         List<Book> testlist = new ArrayList<>();
         testlist.add(testboek);
         when(bookService.searchByTitle("test")).thenReturn(testlist);
@@ -61,7 +61,7 @@ public class UserControllerTest {
 
     @Test
     public void searchByName_ShouldReturnListOfBooks() throws Exception {
-        Book testboek = new Book("test", "mattia", "romeo", "123");
+        Book testboek = new Book("test","mattia","romeo","this is a book description","123");
         List<Book> testlist = new ArrayList<>();
         testlist.add(testboek);
         when(bookService.searchByName("mattia")).thenReturn(testlist);

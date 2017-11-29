@@ -75,7 +75,7 @@ public class BookServiceTest {
 
     @Test
     public void searchByTitle_shouldBookRepositorySearchByTitle() throws Exception {
-        Book testboek=new Book("test","mattia","romeo","123");
+        Book testboek=new Book("test","mattia","romeo","this is a book description","123");
         List<Book> testlist=new ArrayList<>();
         testlist.add(testboek);
         when(bookRepository.searchByTitle("test")).thenReturn(testlist);
@@ -84,7 +84,7 @@ public class BookServiceTest {
 
     @Test
     public void searchByName_shouldBookRepositorySearchByName() throws Exception {
-        Book testboek=new Book("test","mattia","romeo","123");
+        Book testboek=new Book("test","mattia","romeo","this is a book description","123");
         List<Book> testlist=new ArrayList<>();
         testlist.add(testboek);
         when(bookRepository.searchByName("mattia")).thenReturn(testlist);
