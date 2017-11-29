@@ -9,7 +9,9 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -60,4 +62,17 @@ public class BookServiceTest {
         bookService.addBook(new BookDto("titel", "voornaam", "achetrnaam" ,"123"));
         verify(bookRepository).addBook(bookMapper.createBookFromDto(bookDto));
     }
+
+
+    @Test
+    public void searchByISBN_shouldBookRepositorySearchByISBN() throws Exception {
+        Book testboek=new Book("test","mattia","romeo","123");
+        List<Book> testlist=new ArrayList<>();
+        testlist.add(testboek);
+        when(bookRepository.searchByISBN("123")).thenReturn(testlist);
+        Assertions.assertThat(bookService.searchByISBN("123")).contains(testboek);
+
+    }
+
+
 }

@@ -20,4 +20,8 @@ public class BookService {
     public List<Book> getAllBooks() {
         return  bookRepository.getAllBooks();
     }
+
+    public List<Book> searchByISBN(String isbn) {
+        return bookRepository.searchByISBN(isbn);
+    }
 }

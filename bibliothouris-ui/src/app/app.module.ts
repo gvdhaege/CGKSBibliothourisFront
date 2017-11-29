@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,9 +11,18 @@ import { AuthGuard } from './app.guard';
 
 import 'hammerjs';
 
+
+
 import { AppComponent } from './app.component';
-import { routing } from './app.routing';
+//import { routing } from './app.routing';
 import { BackendModule } from './backend/backend.module';
+import { from } from 'rxjs/observable/from';
+
+const appRoutes: Routes = [
+    { path: 'users', component: Users },
+    { path: 'books', component: Books },
+    { path: 'librarian', component: Librarian},
+];
 
 @NgModule({
   declarations: [
@@ -27,8 +36,9 @@ import { BackendModule } from './backend/backend.module';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    routing,
-    BackendModule
+    BackendModule,
+    RouterModule.forRoot(appRoutes),
+    
   ],
   providers: [
     RouterModule,

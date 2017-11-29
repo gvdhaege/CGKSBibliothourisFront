@@ -46,4 +46,10 @@ public class UserController {
     public List<Book> getAllBooks() {
        return bookService.getAllBooks();
     }
+
+    @RequestMapping(path="/searchByISBN")
+    @GetMapping
+    public List<Book> searchByISBN(@RequestParam(value="isbn",required = true)String isbn) {
+        return bookService.searchByISBN(isbn);
+    }
 }
